@@ -1,0 +1,25 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+#$$Y = \left{\begin{array}\4x + 10y \ 2x + 9y\ 2y + 6z\end{array}\right. $$
+Y = np.array([
+              [4, 10, 0], 
+              [2, 9, 0],
+              [0, 2, 6]
+      ])
+
+def plotgraph(lines):
+    figA = plt.figure()
+
+    X = figA.gca(projection='3d')
+    X.set_xlim([0, 10])
+    X.set_ylim([0, 10])
+    X.set_zlim([0, 10])
+
+    origin = (0, 0, 0)
+    X.quiver(origin, origin, origin,
+               lines[:, 0], lines[:, 1], lines[:, 2],
+               arrow_length_ratio=0.05, colors=['black', 'orange', 'magenta'])
+    plt.show()
+
+plotgraph(Y)
